@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="keywords" content="前端组件,简易UI,提示框,弹出框,loading"/>
+		<meta name="description" content="方便实用的原生jsUI组件，可适用各个框架，直接调用即可。"/>  
+		<!-- viewport-fit 适配 iphoneX -->
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=auto">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="x5-orientation" content="portrait">
+		<meta name="x5-fullscreen" content="true">
+
+		<title>简易消息提示UI，原生JS，各框架都可以接入使用</title>
+
+		<link rel="stylesheet" type="text/css" href="static/css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="static/wu-ui/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="static/wu-ui/wu-ui.css" />
+
+		<style type="text/css">
+			#app {
+				margin-top: 50px;
+			}
+			
+			button {
+				display: block;
+				width: 80%;
+				line-height: 40px;
+				text-align: center;
+				color: #333;
+				border: 1px solid #333;
+				border-radius: 4px;
+				background-color: rgba(255, 0, 0, 0.2);
+				margin: 0 auto 20px auto;
+			}
+			
+			.span-box span {
+				display: inline-block;
+				border: 1px solid #e6e6e6;
+				padding: 4px;
+			}
+		</style>
+		<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?8e5660baf038af2115cbc483370effb0";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+		</script>
+	</head>
+
+	<body>
+
+		<div id="app">
+
+			<button @click="showloading">Loading</button>
+
+			<button @click="showLoadingBg">Loading - 白色背景</button>
+
+			<button @click="showError">Error - 网络出错提示</button>
+
+			<button @click="openToast">Toast - 消息提示</button>
+
+			<button @click="openMsg">Message - 顶部消息提示</button>
+
+			<button @click="openDialog">Dialog - IOS风格弹出操作窗口</button>
+
+			<button @click="openDialogInput">Dialog - IOS风格弹出操作窗口(输入框)</button>
+
+			<button @click="openActionsheet">Actionsheet - 底部弹出菜单</button>
+
+		</div>
+
+		<script type="text/javascript" src="static/js/vue.min.js"></script>
+		<script type="text/javascript" src="static/wu-ui/wu-ui.js"></script>
+
+		<script type="text/javascript">
+			
+			var app = new Vue({
+
+				el: '#app',
+
+				data: {
+
+				},
+				created() {
+					var that = this;
+				},
+				methods: {
+
+					//打开loading
+					showloading() {
+						wu.showLoading();
+						setTimeout(() => {
+							//隐藏loading
+							wu.hideToast();
+						}, 3000)
+					},
+
+					//打开有背景的 loading
+					showLoadingBg() {
+						wu.showLoadingBg();
+						setTimeout(() => {
+							//隐藏loading
+							wu.hideToast();
+						}, 3000)
+					},
+
+					//打开错误页面
+					showError() {
+						wu.showError('网络请求超时啦，轻触刷新')
+					},
+
+					//打开toast
+					openToast() {
+						wu.showToast({
+							title: '操作成功',
+							mask: false,
+							icon: 'icon-success', // icon-success | icon-error | icon-info
+							duration: 3000
+						});
+					},
+					//打开顶部弹出的 消息框
+					openMsg() {
+						wu.showMessage({
+							title: "输入错误",
+							backgroundColor: 'red',
+							duration: 3000
+						});
+					},
+					//打开操作窗口
+					openDialog() {
+						wu.showDialog({
+							title: 'Hello Wu-ui',
+							content: '欢迎使用Wu-ui',
+							showCancel: true,
+							success: function(res) {
+								if(res.value == "confirm") {
+									wu.showToast({
+										title: '点击了确定',
+										duration: 2500
+									})
+								}
+								if(res.value == "cancel") {
+									wu.showToast({
+										title: '你取消了',
+										duration: 1500
+									})
+								}
+							}
+						})
+					},
+					//打开消息输入框
+					openDialogInput() {
+						wu.showDialog({
+							title: '请输入信息',
+							showCancel: true,
+							showInput: true,
+							success: function(res) {
+
+								if(res.value == "confirm") {
+									wu.showToast({
+										title: '点击了确定, 值是:' + res.inputValue,
+										duration: 1500
+									})
+								}
+								if(res.value == "cancel") {
+									wu.showToast({
+										title: '你取消了',
+										duration: 1500
+									})
+								}
+							}
+						})
+					},
+					//打开底部弹出菜单
+					openActionsheet() {
+						wu.showAction({
+							title: '示例标题',
+							deleteText: '你确定要删除吗？',
+							menuArray: [{
+									title: '示例菜单一',
+									value: 'menu1',
+									color: ''
+								},
+								{
+									title: '示例菜单二',
+									value: 'menu2',
+									color: ''
+								},
+								{
+									title: 'Delete',
+									value: 'delete',
+									color: 'red'
+								} //如果是删除  value 必须是 "delete"
+							],
+							success: function(res) {
+
+								if(res.value == "delete") {
+									wu.showToast({
+										title: "已删除",
+										duration: 1500
+									})
+								} else {
+									wu.showToast({
+										title: res.title
+									})
+								}
+							}
+						})
+					}
+
+				},
+			});
+			
+		</script>
+
+	</body>
+
+</html>
