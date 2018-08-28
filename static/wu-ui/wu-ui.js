@@ -2,8 +2,10 @@
  * 
  * 作者：hansen Wu
  * 描述：自定义消息组件
- * 邮箱：840399345@qq.com
- * github: https://github.com/wuruijin1996/wu-ui
+ * 邮箱：840399345@qq.com | wuruijin1996@163.com
+ * 代码展示：http://www.wuruijin.cn/wuui
+ * github: https://github.com/wuruijin1996/wuui
+ * version: v1.1
  * 
  * ## 如有感兴趣的同学优化了本组件，希望这位同学可以把优化后的作品发邮件给我，让我也学习学习。
  * 
