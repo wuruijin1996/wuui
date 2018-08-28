@@ -11,7 +11,8 @@
 
 ;(function (){
 	function Wu() {
-	
+		//版本
+		this.v = 'v1.1';
 		//判断是否可以删除组件
 		this.canRemove = true;
 		//loading 节点
@@ -41,10 +42,10 @@
 		for(i = 0, len = btns.length; i < len; i++) {
 			btns[i].addEventListener('touchstart', function() {
 				this.classList.add('wu-btn-hover')
-			})
+			});
 			btns[i].addEventListener('touchend', function() {
 				this.classList.remove('wu-btn-hover')
-			})
+			});
 		}
 	};
 	
@@ -100,9 +101,9 @@
 	
 		setTimeout(function() {
 			el.classList.add('wu-animate-in')
-		}, 0)
+		}, 0);
 	
-		return false
+		return false;
 	};
 	
 	/*
@@ -120,10 +121,10 @@
 				el.addEventListener('webkitTransitionEnd', function() {
 					el.remove();
 					$this.canRemove = true;
-				})
-			}
-		}
-		return false
+				});
+			};
+		};
+		return false;
 	};
 	
 	/* 
@@ -144,12 +145,12 @@
 	
 		setTimeout(function() {
 			el.classList.add('wu-animate-in')
-		}, 0)
+		}, 0);
 	
 		document.querySelector(".start-box-refresh").addEventListener("click", function() {
 			location.reload();
-		})
-		return false
+		});
+		return false;
 	};
 	
 	/* 
@@ -172,10 +173,10 @@
 			duration = obj.duration || 3000;
 		
 		if(typeof obj == 'string') {
-			title = obj
+			title = obj;
 		};
 		
-		var el = document.createElement("div")
+		var el = document.createElement("div");
 		var mask = '<div class="wu-mask-transparent"></div>';
 		var iconLoad = '<i class="wu-icon wu-icon-toast ' + icon + '"></i>';
 		var span = '<span class="wu-toast-content">' + title + '</span>';
@@ -192,18 +193,18 @@
 		this.addDom(el);
 	
 		setTimeout(function() {
-			el.classList.add('wu-animate-in')
-		}, 0)
+			el.classList.add('wu-animate-in');
+		}, 0);
 	
 		//定时关掉
 		setTimeout(function() {
 			el.classList.add('wu-animate-out');
 			el.addEventListener('webkitTransitionEnd', function() {
-				el.remove()
-			})
-		}, duration)
+				el.remove();
+			});
+		}, duration);
 	
-		return false
+		return false;
 	};
 	
 	/* 
@@ -223,7 +224,7 @@
 		this.hideToast();
 		
 		if(!is_el) {
-			var el = document.createElement("div")
+			var el = document.createElement("div");
 			var title = obj.title,
 				top = obj.top || '0',
 				duration = obj.duration || 3000,
@@ -239,17 +240,17 @@
 	
 			setTimeout(function() {
 				el.style.top = top + "px"
-			}, 0)
+			}, 0);
 	
 			setTimeout(function() {
 				el.style.top = "-44px";
 				el.addEventListener('webkitTransitionEnd', function() {
 					this.remove()
-				})
-			}, duration)
-		}
+				});
+			}, duration);
+		};
 	
-		return false
+		return false;
 	};
 	
 	/*
@@ -307,16 +308,16 @@
 		this.hoverButton();
 	
 		setTimeout(function() {
-			el.classList.add('wu-animate-in')
-		}, 0)
+			el.classList.add('wu-animate-in');
+		}, 0);
 	
 		//监听按钮点击
 		document.querySelector('.wu-dialog').addEventListener('click', function (e) {
-			that.handler(e, ops)
-		}, false) 
+			that.handler(e, ops);
+		}, false) ;
 	
-		return
-	}
+		return;
+	};
 	
 	/*
 	 *  显示底部弹出操作窗口
@@ -350,8 +351,8 @@
 		//遍历菜单
 		if(menuArr.length) {
 			for(i = 0, len = menuArr.length; i < len; i++) {
-				h += '<div class="wu-btn wu-actionsheet-cell" data-value="' + menuArr[i].value + '" style="color: ' + menuArr[i].color + '">' + menuArr[i].title + '</div>'
-			}
+				h += '<div class="wu-btn wu-actionsheet-cell" data-value="' + menuArr[i].value + '" style="color: ' + menuArr[i].color + '">' + menuArr[i].title + '</div>';
+			};
 		};
 	
 		h += '</div><div class="wu-btn wu-actionsheet-cancel">取消</div></div>';
@@ -367,11 +368,11 @@
 		}, 0);
 		
 		document.querySelector('.wu-actionsheet').addEventListener('click', function (e) {
-			that.handler(e, ops)
-		}, false)
+			that.handler(e, ops);
+		}, false);
 	
-		return
-	}
+		return;
+	};
 	
 	/**
 	 * 弹出层处理事件方法
@@ -397,36 +398,36 @@
 					ops.success({
 						value: 'confirm',
 						inputValue: input_val
-					})
-				}
+					});
+				};
 			} else {
 				if(typeof ops.success == 'function') {
 					ops.success({
 						value: 'confirm'
-					})
-				}
-			}
+					});
+				};
+			};
 			// 隐藏弹出层
 			that.handlerHide('dialog');
-			return false
-		}
+			return false;
+		};
 		if(cls.indexOf('dialog-btn-cancel') >= 0) {
 			//取消
 			if(typeof ops.success == 'function') {
 				ops.success({
 					value: 'cancel'
-				})
-			}
+				});
+			};
 			// 隐藏弹出层
 			that.handlerHide('dialog');
-			return false
-		}
+			return false;
+		};
 		
 		// actionsheet 操作
 		if(cls.indexOf('wu-mask-action') >= 0 || cls.indexOf('wu-actionsheet-cancel') >= 0) {
 			// 隐藏弹出层
 			that.handlerHide('actionsheet');
-			return false
+			return false;
 		}
 		if(cls.indexOf('wu-btn wu-actionsheet-cell') >= 0) {
 			var val = target.dataset.value,    //菜单data值
@@ -458,10 +459,10 @@
 					// 隐藏弹出层
 					that.handlerHide('actionsheet');
 				}
-			}
-			return false
-		}
-	}
+			};
+			return false;
+		};
+	};
 	
 	/**
 	 * 弹出层 隐藏方法
@@ -477,22 +478,22 @@
 			dialogView.classList.add('wu-animate-out');
 			dialogView.addEventListener('webkitTransitionEnd', function() {
 				this.remove()
-			})
+			});
 			document.body.removeEventListener('click', that.handler, false);
 			return false;
-		}
+		};
 		if(type == 'actionsheet') {
 			var actionSheet = document.querySelector('.wu-actionsheet');
 			
 			actionSheet.classList.add('wu-animate-out');
 			actionSheet.addEventListener('webkitTransitionEnd', function() {
 				this.remove()
-			})
+			});
 			document.body.removeEventListener('click', that.handler, false);
 			return false;
-		}
-	}
-	window.Wu = Wu
+		};
+	};
+	window.Wu = Wu;
 })();
 
 // 实例化
