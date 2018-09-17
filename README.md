@@ -1,6 +1,7 @@
 ## WU-UI
 
 [Demo](http://www.wuruijin.cn/wuui)
+![手机预览](https://gitee.com/qydd/kincustom/pulls/1213 "手机扫码查看wuui")
 
 ## 项目介绍
 
@@ -14,7 +15,7 @@
 ```
 ## 使用说明
 
-* wu-ui.js 直接实例化了
+* wu-ui.js 末尾直接实例化了
 
 ```javascript
 var wu = new Wu();
