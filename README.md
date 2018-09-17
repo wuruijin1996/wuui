@@ -3,6 +3,11 @@
 [Live demo](http://www.wuruijin.cn/wuui)  
 [![](http://www.wuruijin.cn/image/ewm/ewm-wuui.png)](http://www.wuruijin.cn/wuui)
 
+<center>
+<img src="http://www.wuruijin.cn/image/ewm/ewm-wuui.png" width="150" height="150" />
+Figure 1. Lena
+</center>
+
 ## 项目介绍
 
 平时项目用的到的组件就是一些交互类型的消息提示组件，因用ui框架太重，所以自己琢磨了一些简单常用的组件！供大家一起学习
