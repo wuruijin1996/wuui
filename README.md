@@ -1,11 +1,10 @@
 ## WU-UI
 
 [Live demo](http://www.wuruijin.cn/wuui)  
-[![](http://www.wuruijin.cn/image/ewm/ewm-wuui.png)](http://www.wuruijin.cn/wuui)
-
 <center>
+<a href="http://www.wuruijin.cn/wuui">
 <img src="http://www.wuruijin.cn/image/ewm/ewm-wuui.png" width="150" height="150" />
-Figure 1. Lena
+</a>
 </center>
 
 ## 项目介绍
