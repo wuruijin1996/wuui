@@ -1,7 +1,7 @@
 ## WU-UI
 
- [查看Demo](http://www.wuruijin.cn/wuui)  
-![手机预览](http://www.wuruijin.cn/image/ewm/ewm-wuui.png "扫码查看wuui")
+ [Live demo](http://www.wuruijin.cn/wuui)  
+![](http://www.wuruijin.cn/image/ewm/ewm-wuui.png)
 
 ## 项目介绍
 
