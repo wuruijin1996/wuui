@@ -2,9 +2,8 @@
 
 <div align="center">
 <img src="http://www.wuruijin.cn/image/ewm/ewm-wuui.png" height="150" width="150" >
-<a href="http://www.wuruijin.cn/wuui" target="_blank"></a>
+<a href="http://www.wuruijin.cn/wuui" target="_blank">Live demo</a>
 </div>
-<center>[Live demo](http://www.wuruijin.cn/wuui)</center>
 
 ## 项目介绍
 
