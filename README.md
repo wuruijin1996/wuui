@@ -1,11 +1,7 @@
 ## WU-UI
 
 [Live demo](http://www.wuruijin.cn/wuui)  
-<center>
-<a href="http://www.wuruijin.cn/wuui">
-<img src="http://www.wuruijin.cn/image/ewm/ewm-wuui.png" width="150" height="150" />
-</a>
-</center>
+[![](http://www.wuruijin.cn/image/ewm/ewm-wuui.png =150x150)](http://www.wuruijin.cn/wuui)  
 
 ## 项目介绍
 
