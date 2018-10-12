@@ -101,7 +101,7 @@ wu.showMessage({
  */
 wu.showDialog({
     title: 'Hello Wu-ui',
-    ontent: '欢迎使用Wu-ui',
+    content: '欢迎使用Wu-ui',
     showCancel: true,        //是否显示取消按钮
     showInput: false,        //是否显示输入框，如果为true则content会隐藏
     success: function(res) {
