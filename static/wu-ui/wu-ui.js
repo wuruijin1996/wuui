@@ -30,10 +30,12 @@
 	 * ## 其他根据自己业务添加到对应的元素里
 	 */
 	Wu.prototype.addDom = function(el) {
+		var fragment = document.createDocumentFragment();
+		fragment.appendChild(el);
 		//vue
-		document.querySelector('#app').appendChild(el);
+		document.querySelector('#app').appendChild(fragment);
 		//普通页面
-		//document.body.appendChild(el);
+		//document.body.appendChild(fragment);
 	};
 	
 	/*
@@ -66,11 +68,11 @@
 		var n = title ? title : '';
 		var el = document.createElement("div");
 		var span = '<span class="wu-toast-content">' + n + '</span>';
-		var h = '<div class="wu-mask-transparent"></div>' +
+		var h = '<div class="wu-mask-transparent"></div><div class="wu-block">' +
 				'<div class="wu-toast-box wu-toast-loading">' +
 					$this.iosLoading +
 					(title ? span : '') +
-				'</div>';
+				'</div></div>';
 				
 		el.innerHTML = h;
 		el.className = 'wu-toast';
@@ -93,9 +95,9 @@
 		var $this = this;
 		var el = document.createElement("div");
 		var h = '<div class="wu-mask-transparent bg-white"></div>' +
-				'<div class="wu-toast-box wu-toast-box-transparent">' +
+				'<div class="wu-block"><div class="wu-toast-box wu-toast-box-transparent">' +
 				$this.iosLoading +
-				'</div>';
+				'</div></div>';
 		el.innerHTML = h;
 		el.className = 'wu-toast';
 	
@@ -168,7 +170,7 @@
 		});  
 	 */
 	Wu.prototype.showToast = function(obj) {
-		
+		this.hideToast();
 		var title = obj.title,
 			ismask = obj.mask ? true : false,
 			icon = obj.icon || '',
@@ -182,16 +184,14 @@
 		var mask = '<div class="wu-mask-transparent"></div>';
 		var iconLoad = '<i class="wu-icon wu-icon-toast ' + icon + '"></i>';
 		var span = '<span class="wu-toast-content">' + title + '</span>';
-		var h = (ismask ? mask : '') +
+		var h = (ismask ? mask : '') + '<div class="wu-block">' +
 				'<div class="wu-toast-box">' +
 				(icon ? iconLoad : '') +
 				(title ? span : '') +
-				'</div>';
+				'</div></div>';
 	
 		el.innerHTML = h;
 		el.className = 'wu-toast';
-		
-		this.hideToast();
 		this.addDom(el);
 	
 		setTimeout(function() {

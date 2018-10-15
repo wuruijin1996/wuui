@@ -30,8 +30,8 @@
 /* 弹出最外层 */
 .wu-toast {
 	opacity: 0;
-	transition: transform .4s;
-	-webkit-transition: -webkit-transform .4s linear;
+	-webkit-transition: all .4s;
+	transition: all .4s;
 	position: relative;
 	z-index: 899;
 }
@@ -42,32 +42,38 @@
 	opacity: 1;
 }
 
-/* 小块黑色背景 */
-.wu-toast-box {
+.wu-block {
 	max-width: 270px;
 	position: fixed;
 	top: 50%;
 	left: 50%;
+	-webkit-transform: translate3d(-50%,-50%,0);
+	transform: translate3d(-50%,-50%,0);
 	z-index: 199;
-	display: flex;
+}
+
+/* 小块黑色背景 */
+.wu-toast-box {
+	max-width: 270px;
 	display: -webkit-flex;
-	align-items: center;
+	display: flex;
 	-webkit-align-items: center;
+	align-items: center;
 	background: rgba(17, 17, 17, .8);
 	text-align: center;
 	border-radius: 5px;
 	color: #FFFFFF;
 	padding: 10px 16px;
 	font-size: 16px;
-	-webkit-transform: translate(-50%, -50%) scale(.8);
-	transform: translate(-50%, -50%) scale(.8);
+	-webkit-transform: scale(.8);
+	transform: scale(.8);
 	-webkit-transition: all .4s;
 	transition: all .4s;
 }
 
 /*.wu-toast-loading {
-	-webkit-transform: translate(-50%, -50%) scale(1);
-	transform: translate(-50%, -50%) scale(1);
+	-webkit-transform: translate3d(-50%,-50%,0) scale(1);
+	transform: translate3d(-50%,-50%,0) scale(1);
 }*/
 
 .wu-toast-box-transparent {
@@ -153,8 +159,8 @@
 	text-align: center;
 	border-radius: 4px;
 	overflow: hidden;
-	-webkit-transform: translate(-50%, -50%) scale(.8);
-	transform: translate(-50%, -50%) scale(.8);
+	-webkit-transform: translate3d(-50%,-50%,0) scale(.8);
+	transform: translate3d(-50%,-50%,0) scale(.8);
 	-webkit-transition: all .4s;
 	transition: all .4s;
 }
@@ -262,8 +268,8 @@
 	background-color: #fafafa;
 	font-size: 16px;
 	text-align: center;
-	-webkit-transform: translate(0, 100%);
-	transform: translate(0, 100%);
+	-webkit-transform: translate3d(0,100%,0);
+	transform: translate3d(0,100%,0);
 	-webkit-transition: all .4s;
 	transition: all .4s;
 }
@@ -307,8 +313,8 @@
 }
 
 .wu-animate-in .wu-actionsheet-main {
-	-webkit-transform: translate(0, 0);
-	transform: translate(0, 0);
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
 }
 
 /* 错误页面 */
@@ -318,11 +324,11 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
-	display: flex;
 	display: -webkit-flex;
-	-webkit-justify-content: center;
+	display: flex;
 	-webkit-flex-direction: column;
 	flex-direction: column;
+	-webkit-justify-content: center;
 	justify-content: center;
 	-webkit-align-items: center;
 	align-items: center;
@@ -347,15 +353,19 @@
 }
 
 .wu-animate-in,
-.wu-animate-in .wu-mask-black {
+.wu-animate-in .wu-mask-black,
+.wu-animate-in .wu-toast-box,
+.wu-animate-in .dialog-content {
 	opacity: 1;
 }
 
-.wu-animate-in .dialog-content,
+.wu-animate-in .dialog-content {
+	-webkit-transform: translate3d(-50%,-50%,0) scale(1);
+	transform: translate3d(-50%,-50%,0) scale(1);
+}
 .wu-animate-in .wu-toast-box {
-	opacity: 1;
-	-webkit-transform: translate(-50%, -50%) scale(1);
-	transform: translate(-50%, -50%) scale(1);
+	-webkit-transform:  scale(1);
+	transform: scale(1);
 }
 
 /* 动画结束 */
@@ -369,20 +379,20 @@
 .wu-animate-out .wu-mask-black {
 	opacity: 0;
 } */
+.wu-animate-out .dialog-content,
+.wu-animate-out .wu-toast-box,
 .wu-animate-out .wu-mask-black {
 	opacity: 0;
 }
 
 .wu-animate-out .wu-actionsheet-main {
-	-webkit-transform: translate(0, 100%);
-	transform: translate(0, 100%);
+	-webkit-transform: translate3d(0,100%,0);
+	transform: translate3d(0,100%,0);
 }
 
-.wu-animate-out .dialog-content,
-.wu-animate-out .wu-toast-box {
-	opacity: 0;
-	-webkit-transform: translate(-50%, -50%) scale(.8);
-	transform: translate(-50%, -50%) scale(.8);
+.wu-animate-out .dialog-content {
+	-webkit-transform: translate3d(-50%,-50%,0);
+	transform: translate3d(-50%,-50%,0);
 }
 
 @-webkit-keyframes fadeIn {
