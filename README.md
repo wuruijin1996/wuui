@@ -1,6 +1,12 @@
 ## WU-UI
 
-[Demo](http://www.wuruijin.cn/wuui)
+<div align="center">
+<a href="http://www.wuruijin.cn/wuui" target="_blank">
+<img src="http://www.wuruijin.cn/image/ewm/ewm-wuui.png" height="150" width="150" >
+</a>
+</br>
+<a href="http://www.wuruijin.cn/wuui" target="_blank">Live demo</a>
+</div>
 
 ## 项目介绍
 
@@ -14,7 +20,7 @@
 ```
 ## 使用说明
 
-* wu-ui.js 直接实例化了
+* wu-ui.js 末尾直接实例化了
 
 ```javascript
 var wu = new Wu();
@@ -95,7 +101,7 @@ wu.showMessage({
  */
 wu.showDialog({
     title: 'Hello Wu-ui',
-    ontent: '欢迎使用Wu-ui',
+    content: '欢迎使用Wu-ui',
     showCancel: true,        //是否显示取消按钮
     showInput: false,        //是否显示输入框，如果为true则content会隐藏
     success: function(res) {
