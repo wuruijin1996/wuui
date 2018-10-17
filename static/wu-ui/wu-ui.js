@@ -308,7 +308,9 @@
 	
 		this.addDom(el);
 		this.hoverButton();
-	
+		if(showInput) {
+			document.querySelector('.dialog-prompt').focus();
+		};
 		setTimeout(function() {
 			el.classList.add('wu-animate-in');
 		}, 0);
