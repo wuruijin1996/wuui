@@ -37,6 +37,26 @@ Wu.prototype.addDom = function(el) {
 };
 ```
 ---
+* vue-cli引入方式
+```javascript
+//1* wu-ui.js
+// 末尾添加：
+...
+export default wu;
+//2* main.js
+import wu from './assets/wu-ui/wu-ui'; // 把wu-ui文件夹放入assets静态文件夹，这个可以自行选择放哪里
+// 把wu注册到vue里
+Vue.prototype.$wu = wu;  
+...
+//3* app.vue
+// style 标签里引入css
+@import './assets/wu-ui/wu-ui.css';
+...
+//4* 调用组件
+let vm = this;
+vm.$wu.showLoading()
+```
+---
 * 隐藏Toast 用于showLoading, showToast
 ```javascript
 wu.hideToast();
