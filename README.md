@@ -1,4 +1,4 @@
-## WU-UI(维护中...2019-03-01)
+## WU-UI
 
 <div align="center">
 <a href="http://www.wuruijin.cn/wuui" target="_blank">
