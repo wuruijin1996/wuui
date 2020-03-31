@@ -39,6 +39,20 @@
 				border: 1px solid #e6e6e6;
 				padding: 4px;
 			}
+			.link-view {
+				display: -webkit-flex;
+				display: flex;
+				-webkit-justify-content: center;
+				justify-content: center;
+				-webkit-align-items: center;
+				align-items: center;
+				padding: 20px 0;
+			}
+			.link-view a {
+				color: #999;
+				margin: 0 20px;
+				text-decoration: underline;
+			}
 		</style>
 	
 	</head>
@@ -59,9 +73,14 @@
 
 			<button @click="openDialog">Dialog - IOS风格弹出操作窗口</button>
 
-			<button @click="openDialogInput">Dialog - IOS风格弹出操作窗口(输入框)</button>
+			<!-- <button @click="openDialogInput">Dialog - IOS风格弹出操作窗口(输入框)</button> -->
 
 			<button @click="openActionsheet">Actionsheet - 底部弹出菜单</button>
+
+			<div class="link-view">
+				<a href="https://github.com/wuruijin1996/wuui" target="_blank">github</a>
+				<a href="https://www.jq22.com/jquery-info18087" target="_blank">Jq22</a>
+			</div>
 
 		</div>
 
